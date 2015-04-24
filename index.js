@@ -2,7 +2,7 @@ var WebSocket = require('ws');
 var request = require('request');
 var randomWord = require('random-word');
 var cool = require('cool-ascii-faces');
-var gm = require('gm');
+var gm = require('gm').subClass({ imageMagick: true });
 var fs = require('fs');
 
 var botToken = process.env.SLACK_BOT_TOKEN;
@@ -61,7 +61,7 @@ function sockets (e, r, b) {
       var countDown = 3;
       var count = countDown + 2;
       var startText = users[data.user] + ' wants to duel!';
-      
+
       // start duel countdown
       var duel = setInterval(function () {
         if (--count === 0) {
