@@ -56,7 +56,6 @@ function sockets (e, r, b) {
 
     // check trigger
     if (trigger.test(data.text)) {
-      dueling = true;
       currentWord = randomWord();
 
       var countDown = 3;
