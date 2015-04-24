@@ -9,7 +9,7 @@ var botToken = process.env.SLACK_BOT_TOKEN;
 var apiToken = process.env.SLACK_API_TOKEN;
 
 var apiUrl = 'https://slack.com/api/';
-var trigger = /let's duel/;
+var trigger = /let's duel/i;
 var pingInterval = 15000;
 
 function connect () {
@@ -80,7 +80,7 @@ function sockets (e, r, b) {
           id: id++,
           type: 'message',
           channel: data.channel,
-          text: count > countDown ? startText : count + ''
+          text: count > countDown ? startText : count + '...'
         }));
       }, 1000);
 
